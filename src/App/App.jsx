@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function App() {
   const [members, setMembers] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleClick = async () => {
     try {
@@ -28,7 +29,7 @@ function App() {
   const handleUpload = async () => {
     try {
       if (!file) {
-        console.error('No file selected');
+        setError('No file selected');
         return;
       }
 
@@ -36,6 +37,7 @@ function App() {
       formData.append('file', file);
 
       // Send file data to the backend
+      
       const response = await axios.post(
         'http://127.0.0.1:5000/upload',
         formData,
@@ -48,7 +50,8 @@ function App() {
 
       setResponse(response.data);
     } catch (error) {
-      console.error('Error:', error);
+      setError(error.message);
+
     }
   };
 
@@ -71,6 +74,12 @@ function App() {
 
   return (
     <div>
+      <div>
+        <h1>Maralgun test web app</h1>
+      </div>
+      <div>
+            {error && <p>Error: {error}</p>}
+        </div>
       <button onClick={handleClick}>Send Request</button>
       <h1>Members List</h1>
       <ul>
