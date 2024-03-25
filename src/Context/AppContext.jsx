@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from "react";
-import { Sidebar } from "flowbite-react";
 
 const AppContext = createContext();
 
