@@ -1,36 +1,56 @@
-import React from "react";
+// index.js
+import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { AppProvider } from "./Context/AppContext.jsx";
+import { AppProvider } from "./Context/AppContext";
 import Sidebar from "./SideBar/SideBar";
 import { Grid } from "@material-ui/core";
-import App from "./App/App";
-import Home from "./Home/Home";
-import Audio from "./Audio/Audio.jsx";
+import App from "./App/App"; // Assuming this is the main section
+import Home from "./Home/Home"; // Assuming this is the document section
+import Audio from "./Audio/Audio"; // Assuming this is the audio section
+
+const MainComponent = () => {
+  const homeRef = useRef(null);
+  const audioRef = useRef(null);
+  const documentRef = useRef(null);
+
+  const scrollToRef = (ref) =>
+    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  return (
+    <div className="container">
+      <Grid container>
+        <Grid item xs={2}>
+          <Sidebar
+            onMenuClick={scrollToRef}
+            homeRef={homeRef}
+            documentRef={documentRef}
+            audioRef={audioRef}
+          />
+        </Grid>
+        <Grid item xs={10}>
+          <div ref={homeRef}>
+            <App />
+          </div>
+          <div ref={documentRef}>
+            <Home />
+          </div>
+          <div ref={audioRef}>
+            <Audio />
+          </div>
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div className="container">
-      <Grid item xs={2}>
-        <Sidebar />
-      </Grid>
-      <Grid item xs={10}>
-        <div className="main-content">
-          <AppProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<App />} />
-                <Route path="/document" element={<Home />} />
-                <Route path="/audio" element={<Audio />} />
-              </Routes>
-            </BrowserRouter>
-          </AppProvider>
-        </div>
-      </Grid>
-    </div>
+    <AppProvider>
+      <MainComponent />
+    </AppProvider>
   </React.StrictMode>
 );
 

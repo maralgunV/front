@@ -3,47 +3,81 @@ body {
   padding: 0;
 }
 
+/* The sidebar-container will be full height to match the viewport */
 .sidebar-container {
   display: flex;
-  height: 150vh;
+  flex-direction: column;
+  height: 100vh;
+  width: 250px; /* Width of the sidebar */
 }
 
+/* Sidebar with fixed positioning */
 .sidebar {
-  position: fixed; /* Set position to fixed */
-  top: 0; /* Position it at the top of the viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 250px;
   height: 100%;
   background-color: rgb(103, 144, 232);
-  color: hsl(0, 0%, 100%);
-  overflow-y: auto; /* Add overflow-y to allow scrolling if content exceeds height */
+  color: white;
+  overflow-y: auto; /* Enable scrolling if the content is too long */
 }
 
+/* Header of the sidebar with image and title */
 .sidebar-header {
   font-size: 24px;
   font-weight: bold;
-  padding: 30px;
-  color: #fff;
+  padding: 20px;
   background-color: #33415c;
+  color: white;
+  text-align: center; /* Center the text */
 }
 
-.sidebar-menu ul {
-  list-style: none;
-  padding: 0;
+.header-image {
+  max-width: 100%; /* Ensure the image is not bigger than the container */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Margin at the bottom of the image */
 }
 
-.sidebar-menu ul li {
-  padding: 10px 20px;
-  cursor: pointer; /* Change cursor to pointer when hovering over the list item */
+/* Styling for menu items */
+.sidebar-menu-items {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove default margin */
 }
 
-.sidebar-menu ul li a {
-  display: block;
-  width: 100%;
-  color: #fff;
-  text-decoration: none;
-  font-size: 30px;
+.sidebar-menu-items li {
+  padding: 20px 30px; /* Add padding for touch targets */
+  cursor: pointer; /* Change the cursor to pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  font-size: 30px; /* Increase font size */
+  text-align: center; /* Center-align the text */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
 }
 
-.sidebar-menu ul li:hover {
-  background-color: rgba(30, 36, 50, 0.8);
+.sidebar-menu-items li:hover {
+  background-color: rgba(30, 36, 50, 0.8); /* Hover background color */
+}
+
+/* Icons and text inside the menu items */
+.sidebar-menu-items li svg {
+  margin-right: 10px;
+  font-size: 24px; /* Increase icon size */
+}
+
+.sidebar-menu-items li span {
+  vertical-align: middle; /* Align the text vertically */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 100%; /* Full width */
+  }
+
+  .sidebar {
+    position: static; /* Static positioning */
+    height: auto; /* Height according to content */
+  }
 }

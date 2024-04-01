@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
-import './Home.css';
-import axios from 'axios';
-import ScreenBlocker from '../ScreenBlocker/ScreenBlocker';
+import React, { useState } from "react";
+import "./Home.css";
+import axios from "axios";
+import ScreenBlocker from "../ScreenBlocker/ScreenBlocker";
 
 function Home() {
   const [loading, setLoading] = useState(false);
 
   return (
     <div>
-      <h1>React Loading Example</h1>
-      <ScreenBlocker apiUrl="http://127.0.0.1:5000/get_file_info" />
+      <h1>Document</h1>
+      <h4 className="home-h4">
+        Энэхүү вебсайт нь ярианы чанар сайжруулах зорилгоор бүтээгдсэн ба
+        цаашдаа <br /> энэ чиглэлийн олон төрлийн үйлчилгээг үзүүлдэг болох
+        зорилготой.
+      </h4>
+      <h4 className="home-h4">
+        Ярианы чанар сайжруулах AI модел нь нээлттэй сан Speechbrain-ий моделийг
+        <br /> авч ашигласан. Ирээдүйд бусад төрлийн AI моделийг судалж онлайн
+        аудио
+        <br /> засварлах зориулалттай вебсайт болгох чиглэлтэй ажиллана.
+      </h4>
+      <div className="image-box">
+        <img
+          src="/audio_image.jpg"
+          alt="Description of Third Image"
+          style={{
+            top: "0",
+            right: "0",
+            width: "900px",
+            height: "600px",
+          }}
+        />
+      </div>
     </div>
   );
 }

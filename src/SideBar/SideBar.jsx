@@ -3,7 +3,7 @@ import "./SideBar.css";
 import { SiHomeadvisor, SiAmazondocumentdb, SiAudiomack } from "react-icons/si";
 import headerImage from "./logo_twitter.jpeg";
 
-function Sidebar() {
+function Sidebar({ onMenuClick, homeRef, documentRef, audioRef }) {
   return (
     <div className="sidebar-container">
       <div className="sidebar">
@@ -11,28 +11,20 @@ function Sidebar() {
           <img src={headerImage} alt="Header" className="header-image" />
           SPEECH ENHANCEMENT
         </div>
-        <div className="sidebar-menu">
-          <ul className="sidebar-menu">
-            <li>
-              <a href="/">
-                <SiHomeadvisor />
-                <span>Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="/Document">
-                <SiAmazondocumentdb />
-                <span>Document</span>
-              </a>
-            </li>
-            <li>
-              <a href="audio">
-                <SiAudiomack />
-                <span>Audio</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ul className="sidebar-menu-items">
+          <li onClick={() => onMenuClick(homeRef)}>
+            <SiHomeadvisor size={28} /> {/* Adjust the size prop */}
+            <span>Home</span>
+          </li>
+          <li onClick={() => onMenuClick(documentRef)}>
+            <SiAmazondocumentdb size={28} /> {/* Adjust the size prop */}
+            <span>Document</span>
+          </li>
+          <li onClick={() => onMenuClick(audioRef)}>
+            <SiAudiomack size={28} /> {/* Adjust the size prop */}
+            <span>Audio</span>
+          </li>
+        </ul>
       </div>
     </div>
   );
