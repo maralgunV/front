@@ -33,11 +33,11 @@ const MainComponent = () => {
           <div ref={homeRef}>
             <App />
           </div>
-          <div ref={documentRef}>
-            <Home />
-          </div>
           <div ref={audioRef}>
             <Audio />
+          </div>
+          <div ref={documentRef}>
+            <Home />
           </div>
         </Grid>
       </Grid>

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./Home.css";
 import axios from "axios";
-import ScreenBlocker from "../ScreenBlocker/ScreenBlocker";
+import Waveform from "../Waveform/Waveform";
 
 function Home() {
   const [loading, setLoading] = useState(false);
 
   return (
     <div>
-      <h1>Document</h1>
+      <h1>Тухай</h1>
       <h4 className="home-h4">
         Энэхүү вебсайт нь ярианы чанар сайжруулах зорилгоор бүтээгдсэн ба
         цаашдаа <br /> энэ чиглэлийн олон төрлийн үйлчилгээг үзүүлдэг болох

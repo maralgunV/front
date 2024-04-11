@@ -4,20 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  const [members, setMembers] = useState([]);
   const [error, setError] = useState(null);
-
-  const handleClick = async () => {
-    try {
-      const currentTime = new Date().toISOString();
-      const response = await axios.post("http://127.0.0.1:5000", {
-        time: currentTime,
-      });
-      setMembers(response.data.members);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
 
   const [file, setFile] = useState(null);
   const [response, setResponse] = useState(null);
@@ -74,7 +61,7 @@ function App() {
   return (
     <div>
       <div>
-        <h1>Speech Enhancement Web App</h1>
+        <h1>Ярианы чанар сайжруулах веб программ</h1>
       </div>
       <div>
         <h4>
@@ -152,48 +139,6 @@ function App() {
           </div>
         </div>
       </div>
-      {/* <button onClick={handleClick}>Send Request</button>
-      <h1>Members List</h1>
-      <ul>
-        {members.map((member, index) => (
-          <li key={index}>{member}</li>
-        ))}
-      </ul> */}
-      {/* <h1>Upload File</h1>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
-
-      {response && (
-        <div>
-          <h2>Response from server:</h2>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
-        </div>
-      )} */}
-
-      {/* <div>
-        <h1>Download File</h1>
-        <button onClick={handleDownload}>Download File</button>
-
-        {fileInfo && (
-          <div>
-            <h2>File Info:</h2>
-            <p>Filename: {fileInfo.filename}</p>
-            <p>Size: {fileInfo.size} bytes</p>
-          </div>
-        )}
-      </div> */}
-      {/* <img
-        src="/audio_image.jpg"
-        alt="Audio Image"
-        style={{
-          position: "absolute",
-          top: "0",
-          right: "0",
-          width: "450px",
-          paddingRight: "20px",
-          paddingTop: "40px",
-        }}
-      /> */}
     </div>
   );
 }

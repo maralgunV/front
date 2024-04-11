@@ -1,0 +1,5 @@
+.waveform-container {
+    width: 100%; /* You can set a specific width as well */
+    max-width: 800px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* This centers the waveform in its parent */
+  }

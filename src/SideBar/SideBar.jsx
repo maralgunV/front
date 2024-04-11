@@ -16,13 +16,13 @@ function Sidebar({ onMenuClick, homeRef, documentRef, audioRef }) {
             <SiHomeadvisor size={28} /> {/* Adjust the size prop */}
             <span>Home</span>
           </li>
-          <li onClick={() => onMenuClick(documentRef)}>
-            <SiAmazondocumentdb size={28} /> {/* Adjust the size prop */}
-            <span>Document</span>
-          </li>
           <li onClick={() => onMenuClick(audioRef)}>
             <SiAudiomack size={28} /> {/* Adjust the size prop */}
             <span>Audio</span>
+          </li>
+          <li onClick={() => onMenuClick(documentRef)}>
+            <SiAmazondocumentdb size={28} /> {/* Adjust the size prop */}
+            <span>About</span>
           </li>
         </ul>
       </div>
