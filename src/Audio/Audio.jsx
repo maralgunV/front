@@ -73,15 +73,15 @@ function Audio() {
   };
 
   const handlePlayPause = () => {
-    if (wavesurfer) {
-      wavesurfer.handlePlayPause();
+    try {
+      wavesurfer.playPause();
+    } catch (error) {
+      console.error('Error while pausing or playing:', error);
     }
   };
-
+  
   const handleStart = () => {
-    if (wavesurfer) {
-      wavesurfer.useCallback();
-    }
+      wavesurfer.stop();
   };
 
   const download = () => {
@@ -108,10 +108,15 @@ function Audio() {
 
       <div className="getAudio">
         <button onClick={fetchAudio}>Файл сонсох</button>
-        {audioUrl && <Waveform url={audioUrl} height={200} onWaveSurfer={handleWaveSurfer}  />}
+        {audioUrl && <Waveform url={audioUrl} height={200} onWaveSurfer={handleWaveSurfer} />}
         <button onClick={handlePlayPause}>Play/Pause</button>
         <button onClick={handleStart}>Start from Beginning</button>
       </div>
+
+      {/* <div className="getAudio">
+        <button onClick={fetchAudio}>Файл сонсох</button>
+        {audioUrl && <Waveform url={audioUrl} height={200} onWaveSurfer={handleWaveSurfer} />}
+      </div> */}
 
       <div className="download">
         <button onClick={download}>Файл татах</button>

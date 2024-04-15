@@ -1,19 +1,10 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 
 const Waveform = ({ url, height, onWaveSurfer }) => {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
-
-  const handlePlayPause = useCallback(() => {
-    wavesurfer.current.playPause();
-  }, []);
-
-  const handleStart = useCallback(() => {
-    wavesurfer.current.play();
-    wavesurfer.current.stop();
-  }, []);
-
+  const onWaveSurferCalled = useRef(false);
 
   useEffect(() => {
     wavesurfer.current = WaveSurfer.create({
@@ -24,28 +15,32 @@ const Waveform = ({ url, height, onWaveSurfer }) => {
       width: 700,
       fillParent: true,
     });
-    
-    // wavesurfer.current.on('ready', () => {
-    //     onWaveSurfer({
-    //       playPause: () => wavesurfer.current.playPause(),
-    //       stop: () => wavesurfer.current.stop(),
-    //       // Additional controls can be added here
-    //     });
-    //   });
 
-    // onWaveSurfer({
-    //     playPause: handlePlay,
-    //   });  
+    wavesurfer.current.on('ready', () => {
+      if (!onWaveSurferCalled.current && onWaveSurfer) {
+        onWaveSurfer({
+          playPause: () => wavesurfer.current.playPause(),
+          stop: () => wavesurfer.current.stop(),
+        });
+        onWaveSurferCalled.current = true; 
+      }
+    });
 
-    wavesurfer.current.load(url).then(() => {
+    wavesurfer.current.load(url)
+      .then(() => {
         console.log('WaveSurfer has loaded the URL successfully');
-      }).catch(e => {
+      })
+      .catch(e => {
         console.error('Error loading the URL:', e);
       });
 
-      
-    return () => wavesurfer.current.destroy();
+    return () => {
+      if (wavesurfer.current) {
+        wavesurfer.current.destroy();
+      }
+    };
   }, [url, height, onWaveSurfer]);
+  
 
   return <div id="waveform" ref={waveformRef} />;
 };
