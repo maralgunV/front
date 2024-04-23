@@ -29,7 +29,7 @@ const MainComponent = () => {
             audioRef={audioRef}
           />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={9}>
           <div ref={homeRef}>
             <App />
           </div>

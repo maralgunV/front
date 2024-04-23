@@ -1,5 +1,15 @@
 .waveform-container {
-    width: 100%; /* You can set a specific width as well */
-    max-width: 800px; /* Adjust the max-width as needed */
-    margin: 0 auto; /* This centers the waveform in its parent */
-  }
+  width: 100%; /* This ensures that the waveform takes the full width of its container */
+  max-width: 2048px; /* Adjust the max-width to match the width of the image */
+  margin: 0 auto; /* This centers the waveform in its parent */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* This adds a subtle shadow for depth, similar to the image */
+  background: #000; /* This sets the background color to match the image */
+  border-radius: 4px; /* This provides rounded corners as seen in the image */
+}
+
+#waveform {
+  --wave-color: #00f; /* This is the color of the non-played part of the waveform */
+  --progress-color: #0000ff88; /* This is the color of the played part of the waveform, with some transparency */
+  --cursor-color: #fff; /* This is the color of the cursor line */
+  --height: 80px; /* Adjust the height to match the waveform in the image */
+}

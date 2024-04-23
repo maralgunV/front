@@ -1,0 +1,56 @@
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .toggle-slider {
+    position: relative;
+    display: block;
+    width: 90px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: background-color 0.4s;
+  }
+  
+  .toggle-slider:before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.4s;
+  }
+  
+  #toggle-switch-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  #toggle-switch-checkbox:checked + .toggle-slider {
+    background-color: #2196F3;
+  }
+  
+  #toggle-switch-checkbox:checked + .toggle-slider:before {
+    transform: translateX(56px);
+  }
+  
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .label {
+    transition: color 0.4s;
+    cursor: pointer;
+  }
+  
+  .label.active {
+    color: #2196F3;
+  }
+  

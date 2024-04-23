@@ -1,0 +1,54 @@
+.dropdown-container {
+  font-family: 'Arial', sans-serif;
+  width: 200px;
+  margin: 20px; /* Center the dropdown in the page */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items */
+}
+
+.dropdown-select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #007bff; /* Add a bit of color to the border */
+  border-radius: 8px; /* Rounded borders */
+  font-size: 16px;
+  background-color: white; /* Bright background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  cursor: pointer; /* Change cursor to indicate it's selectable */
+}
+
+.dropdown-select:hover {
+  border-color: #0056b3; /* Darken the border on hover */
+  background-color: #f0f8ff; /* Slightly change background on hover */
+}
+
+.dropdown-select:focus {
+  outline: none;
+  border-color: #00376b; /* Even darker border for focus */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add a glow effect on focus */
+}
+
+.dropdown-select option {
+  color: #333;
+  padding: 8px 0; /* Add padding for options */
+}
+
+/* Styling for the selected option text */
+.selected-text {
+  margin-top: 10px;
+  font-size: 16px;
+  /* Use background with linear-gradient for text color gradient effect */
+  background: linear-gradient(to right, blue, white);
+  /* Display as inline-block to make gradient apply to text */
+  display: inline-block;
+  /* Set the background clip to text so that gradient only applies to the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Transparent text to reveal the gradient background */
+  color: transparent;
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Make the font a bit bolder */
+}
+

@@ -18,9 +18,10 @@ body {
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: rgb(103, 144, 232);
+  background-color: #575757;
   color: white;
-  overflow-y: auto; /* Enable scrolling if the content is too long */
+  overflow-y: auto;
+  border-radius: 20px;
 }
 
 /* Header of the sidebar with image and title */
@@ -80,4 +81,12 @@ body {
     position: static; /* Static positioning */
     height: auto; /* Height according to content */
   }
+}
+.sidebar-menu-items li.active span {
+  color: rgb(0, 197, 255); /* Change text color when active */
+}
+.sidebar-footer {
+  margin-top: auto; /* Push the footer to the bottom of the sidebar */
+  padding: 20px; /* Add padding to create space */
+  padding-top: 150px;
 }

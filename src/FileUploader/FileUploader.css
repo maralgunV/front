@@ -1,0 +1,83 @@
+.file-uploader {
+    border: 2px dashed#AAAAAA;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #181818;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .file-uploader .drag-text {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .file-uploader label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .file-uploader label:hover {
+    background-color: #0056b3;
+  }
+  
+  .file-uploader label:before {
+    content: '☁️'; /* Add your cloud icon here, or use an icon font like FontAwesome */
+    font-size: 24px;
+    margin-right: 8px;
+  }
+  
+  .file-uploader input[type='file'] {
+    display: none;
+  }
+  
+  .file-uploader .file-details {
+    font-size: 14px;
+    background: #333;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .file-uploader .upload-info {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 20px;
+    white-space: nowrap; /* This will ensure the text stays on one line */
+    overflow: hidden; /* Add this to prevent the text from overflowing */
+    text-overflow: ellipsis; /* This will add an ellipsis if the text is too long */
+  }
+  .loading-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .loading-spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }

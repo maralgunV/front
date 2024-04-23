@@ -54,4 +54,59 @@
     width: 300%;
     max-width: 800px;
   }
+
+ 
+  .audio-control {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Square for simplicity, adjust as needed */
+    border-radius: 50%; /* Circular buttons */
+    background-color: #007bff; /* Matching your primary button color */
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    margin: 10px; /* Spacing between buttons */
+    margin-top: 20px;
+  }
   
+  .audio-control:hover {
+    background-color: #0056b3;
+  }
+  
+  .audio-control.play:before {
+    content: '▶'; /* Play icon */
+    font-size: 24px;
+    padding-left: 3px;
+  }
+  
+  .audio-control.pause:before {
+    content: '⏸'; /* Pause icon */
+    font-size: 24px;
+  }
+  
+  .audio-control.start:before {
+    padding-top: 2px;
+    content: '⏹'; /* Start from beginning icon */
+    font-size: 30px;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.download {
+    margin-top: 20px;
+}

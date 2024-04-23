@@ -26,7 +26,7 @@ function App() {
       // Send file data to the backend
 
       const response = await axios.post(
-        "http://127.0.0.1:5000/upload",
+        "http://127.0.0.1:5001/upload",
         formData,
         {
           headers: {
@@ -45,14 +45,14 @@ function App() {
 
   const handleDownload = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/get_file_info");
+      const response = await axios.get("http://127.0.0.1:5001/get_file_info");
       const { filename, size } = response.data;
 
       // Set file info state
       setFileInfo({ filename, size });
 
       // Initiate download
-      window.location.href = "http://127.0.0.1:5000/get_file";
+      window.location.href = "http://127.0.0.1:5001/get_file";
     } catch (error) {
       console.error("Error:", error);
     }
@@ -60,10 +60,10 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div className="header">
         <h1>Ярианы чанар сайжруулах веб программ</h1>
       </div>
-      <div>
+      <div className="description">
         <h4>
           Энэхүү апп нь ярианы бичсэн Wav файлыг ярианы чанар сайжруулах AI
           <br />
